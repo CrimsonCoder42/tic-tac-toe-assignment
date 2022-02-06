@@ -3,14 +3,18 @@ h1 {
 }
 
 .grid {
-    display: grid;
+    border: 1px solid black;
+    height: 198px;
+    width : 198px;
     grid-gap: 1px;
-    grid-template-columns: repeat(3, 1fr);
   }
-.grid-layout {
+#main {
+    grid-template-columns: repeat(3, 1fr);
+    border: 2px solid black;
+    display: grid;
+    display: grid;
     width: 600px;
     height: 600px;
-    border: 3px solid green;
     position: absolute; 
     left: 0;
     right: 0;
