@@ -6,8 +6,32 @@ h1 {
     border: 1px solid black;
     height: 198px;
     width : 198px;
-    grid-gap: 1px;
   }
+
+button {
+    height: 25px;
+    width: 50px;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    position: fixed; 
+}
+
+.Rbutton{
+    bottom:10%;
+    background-color: blue;
+}
+
+.Sbutton{
+    bottom:15%;
+    background-color: green;
+}
+
+
 #main {
     grid-template-columns: repeat(3, 1fr);
     border: 2px solid black;
