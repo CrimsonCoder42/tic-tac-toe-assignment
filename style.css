@@ -1,46 +1,26 @@
-
-
-
-
+/*set color for body and h1 use gradient on background*/
+:root {
+    --Red-Orange: rgba(255, 92, 77, 1);
+    --Orange: rgba(255, 150, 54, 1);
+    --Mimosa: #FFCD58; 
+    --Chartreuse: #DAD870; 
+    --Lime-Green: #7A871E; 
+  }
 
 body{
     margin: 0;
-    background: linear-gradient(to left, rgba(7,27,82,1) 0%, rgba(0,128,128,1)100%);
+    background: linear-gradient(to left, var(--Red-Orange)0%, var(--Orange)100%);
 }
 
 h1 {
     text-align: center;
-    color: white; 
+    color: var(--Mimosa); 
     margin-bottom: 50px;
-}
-
-.grid {
-    border: 1px solid white;
-    height: 198px;
-    width : 198px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    cursor: pointer;
-  }
-
-button {
-    height: 25px;
-    width: 50px;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    position: fixed; 
 }
 
 .Rbutton{
     bottom:10%;
-    background-color: blue;
+    background-color: var(--Lime-Green);
 }
 
 #main {
@@ -57,4 +37,98 @@ button {
     max-height: 100%;
     overflow: auto;
 }
-  
+
+.grid {
+    border: 1px solid var(--Chartreuse);
+    height: 198px;
+    width : 198px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+  }
+
+.grid:first-child,
+.grid:nth-child(2),
+.grid:nth-child(3){
+    border-top: none;
+}
+
+.grid:nth-child(3n +1) {
+    border-left: none;
+}
+
+.grid:nth-child(3n + 3) {
+    border-right: none;
+}
+
+.grid:last-child,
+.grid:nth-child(8),
+.grid:nth-child(7){
+    border-bottom: none;
+}
+
+
+.grid.EX,
+.grid.OH {
+    cursor: not-allowed;
+}
+
+.grid.EX::before,
+.grid.EX::after,
+.grid.OH::before,
+.grid.OH::after {
+    background-color: var(--Lime-Green);
+}
+
+
+.board.EX .grid:not(.EX):not(.OH):hover::before,
+.board.EX .grid:not(.EX):not(.OH):hover::after,
+.board.OH .grid:not(.EX):not(.OH):hover::before{
+    background-color: lightgrey;
+}
+
+
+.grid.EX::before,
+.grid.EX::after,
+.board.EX .grid:not(.EX):not(.OH):hover::before,
+.board.EX .grid:not(.EX):not(.OH):hover::after {
+    content: '';
+    position: absolute;
+    width: calc(var(--mark-size) * .15);
+    height: var(--mark-size);   
+}
+
+.grid.EX::before,
+.board.EX .grid:not(.EX):not(.OH):hover::before{
+    transform: rotate(45deg);
+}
+
+.grid.EX::after,
+.board.EX .grid:not(.EX):not(.OH):hover::after{
+    transform: rotate(-45deg);
+}
+
+.grid.OH::before,
+.grid.OH::after,
+.board.OH .grid:not(.EX):not(.OH):hover::before,
+.board.OH .grid:not(.EX):not(.OH):hover::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+}
+
+.grid.OH::before,
+.board.OH .grid:not(.EX):not(.OH):hover::before {
+    width: var(--mark-size);
+    height: var(--mark-size);
+   
+}
+
+.grid.OH::after,
+.board.OH .grid:not(.EX):not(.OH):hover::after {
+    width: calc(var(--mark-size) * .7);
+    height: calc(var(--mark-size) * .7);
+    background-color: white;
+}
