@@ -5,26 +5,31 @@
     --Mimosa: #FFCD58; 
     --Chartreuse: #DAD870; 
     --Lime-Green: #7A871E; 
+    --gridHeight: 198px;
+    --gridWidth: 198px;
+    --ExOhSize: calc(var(--gridHeight) * .8)
+    
   }
-
+  
 body{
     margin: 0;
-    background: linear-gradient(to left, var(--Red-Orange)0%, var(--Orange)100%);
+    background: linear-gradient(to left, var(--Red-Orange) 0%, var(--Orange)100%);
 }
 
 h1 {
     text-align: center;
-    color: var(--Mimosa); 
+    color: var(--Lime-Green); 
     margin-bottom: 50px;
 }
 
 .Rbutton{
     bottom:10%;
-    background-color: var(--Lime-Green);
+    background-color: var(--Mimosa);
 }
 
 #main {
     grid-template-columns: repeat(3, 1fr);
+    background: var(--Chartreuse);
     display: grid;
     width: 600px;
     height: 600px;
@@ -39,9 +44,9 @@ h1 {
 }
 
 .grid {
-    border: 1px solid var(--Chartreuse);
-    height: 198px;
-    width : 198px;
+    border: 1px solid var(--Red-Orange);
+    height: var(--gridHeight);
+    width : var(--gridWidth);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,7 +91,7 @@ h1 {
 .board.EX .grid:not(.EX):not(.OH):hover::before,
 .board.EX .grid:not(.EX):not(.OH):hover::after,
 .board.OH .grid:not(.EX):not(.OH):hover::before{
-    background-color: lightgrey;
+    background-color: var(--Lime-Green);
 }
 
 
@@ -96,8 +101,8 @@ h1 {
 .board.EX .grid:not(.EX):not(.OH):hover::after {
     content: '';
     position: absolute;
-    width: calc(var(--mark-size) * .15);
-    height: var(--mark-size);   
+    width: calc(var(--ExOhSize) * .15);
+    height: var(--ExOhSize);   
 }
 
 .grid.EX::before,
@@ -121,14 +126,14 @@ h1 {
 
 .grid.OH::before,
 .board.OH .grid:not(.EX):not(.OH):hover::before {
-    width: var(--mark-size);
-    height: var(--mark-size);
+    width: var(--ExOhSize);
+    height: var(--ExOhSize);
    
 }
 
 .grid.OH::after,
 .board.OH .grid:not(.EX):not(.OH):hover::after {
-    width: calc(var(--mark-size) * .7);
-    height: calc(var(--mark-size) * .7);
-    background-color: white;
+    width: calc(var(--ExOhSize) * .7);
+    height: calc(var(--ExOhSize) * .7);
+    background-color:  var(--Chartreuse);
 }
