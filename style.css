@@ -17,6 +17,7 @@ body{
 }
 
 h1 {
+    font-family: "Lucida Console", "Courier New", monospace;
     text-align: center;
     color: var(--Lime-Green); 
     margin-bottom: 50px;
