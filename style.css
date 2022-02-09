@@ -1,4 +1,4 @@
-/*set color for body and h1 use gradient on background*/
+/*set color and size variables */
 :root {
     --Red-Orange: rgba(255, 92, 77, 1);
     --Orange: rgba(255, 150, 54, 1);
@@ -8,9 +8,10 @@
     --gridHeight: 198px;
     --gridWidth: 198px;
     --ExOhSize: calc(var(--gridHeight) * .8)
-    
   }
-  
+
+ /*style h1, body, button, and Main div */ 
+
 body{
     margin: 0;
     background: linear-gradient(to left, var(--Red-Orange) 0%, var(--Orange)100%);
@@ -28,7 +29,7 @@ h1 {
     background-color: var(--Mimosa);
 }
 
-#main {
+.mainDiv {
     grid-template-columns: repeat(3, 1fr);
     background: var(--Chartreuse);
     display: grid;
@@ -55,6 +56,8 @@ h1 {
     cursor: pointer;
   }
 
+/*Chop off ends or borders and generate X and O via CSS */ 
+
 .grid:first-child,
 .grid:nth-child(2),
 .grid:nth-child(3){
@@ -75,7 +78,6 @@ h1 {
     border-bottom: none;
 }
 
-
 .grid.EX,
 .grid.OH {
     cursor: not-allowed;
@@ -88,18 +90,17 @@ h1 {
     background-color: var(--Lime-Green);
 }
 
-
-.board.EX .grid:not(.EX):not(.OH):hover::before,
-.board.EX .grid:not(.EX):not(.OH):hover::after,
-.board.OH .grid:not(.EX):not(.OH):hover::before{
+.EX .grid:not(.EX):not(.OH):hover::before,
+.mainDiv.EX .grid:not(.EX):not(.OH):hover::after,
+.mainDiv.OH .grid:not(.EX):not(.OH):hover::before{
     background-color: var(--Lime-Green);
 }
 
 
 .grid.EX::before,
 .grid.EX::after,
-.board.EX .grid:not(.EX):not(.OH):hover::before,
-.board.EX .grid:not(.EX):not(.OH):hover::after {
+.mainDiv.EX .grid:not(.EX):not(.OH):hover::before,
+.mainDiv.EX .grid:not(.EX):not(.OH):hover::after {
     content: '';
     position: absolute;
     width: calc(var(--ExOhSize) * .15);
@@ -107,33 +108,33 @@ h1 {
 }
 
 .grid.EX::before,
-.board.EX .grid:not(.EX):not(.OH):hover::before{
+.mainDiv.EX .grid:not(.EX):not(.OH):hover::before{
     transform: rotate(45deg);
 }
 
 .grid.EX::after,
-.board.EX .grid:not(.EX):not(.OH):hover::after{
+.mainDiv.EX .grid:not(.EX):not(.OH):hover::after{
     transform: rotate(-45deg);
 }
 
 .grid.OH::before,
 .grid.OH::after,
-.board.OH .grid:not(.EX):not(.OH):hover::before,
-.board.OH .grid:not(.EX):not(.OH):hover::after {
+.mainDiv.OH .grid:not(.EX):not(.OH):hover::before,
+.mainDiv.OH .grid:not(.EX):not(.OH):hover::after {
     content: '';
     position: absolute;
     border-radius: 50%;
 }
 
 .grid.OH::before,
-.board.OH .grid:not(.EX):not(.OH):hover::before {
+.mainDiv.OH .grid:not(.EX):not(.OH):hover::before {
     width: var(--ExOhSize);
     height: var(--ExOhSize);
    
 }
 
 .grid.OH::after,
-.board.OH .grid:not(.EX):not(.OH):hover::after {
+.mainDiv.OH .grid:not(.EX):not(.OH):hover::after {
     width: calc(var(--ExOhSize) * .7);
     height: calc(var(--ExOhSize) * .7);
     background-color:  var(--Chartreuse);
