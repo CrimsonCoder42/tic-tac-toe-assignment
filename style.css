@@ -1,13 +1,16 @@
+/* Set uniformed box sizing */
+
 /*set color and size variables */
 :root {
     --Red-Orange: rgba(255, 92, 77, 1);
     --Orange: rgba(255, 150, 54, 1);
     --Mimosa: #FFCD58; 
+    --Amber:#FDB750;
     --Chartreuse: #DAD870; 
     --Lime-Green: #7A871E; 
     --gridHeight: 198px;
     --gridWidth: 198px;
-    --ExOhSize: calc(var(--gridHeight) * .8)
+    --ExOSize: calc(var(--gridHeight) * .8)
   }
 
  /*style h1, body, button, and Main div */ 
@@ -21,17 +24,31 @@ h1 {
     font-family: "Lucida Console", "Courier New", monospace;
     text-align: center;
     color: var(--Lime-Green); 
-    margin-bottom: 50px;
+    margin-bottom: 0px;
 }
 
-.Rbutton{
-    bottom:10%;
-    background-color: var(--Mimosa);
+#messageAlert{
+    visibility: hidden;
+    margin-bottom: 25px;
 }
 
+.container {
+    height: 200px;
+    position: relative;
+    
+  }
+  
+.vertical-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    
+  }
+ 
 .mainDiv {
     grid-template-columns: repeat(3, 1fr);
-    background: var(--Chartreuse);
+    border-collapse: collapse;
     display: grid;
     width: 600px;
     height: 600px;
@@ -46,7 +63,7 @@ h1 {
 }
 
 .grid {
-    border: 1px solid var(--Red-Orange);
+    border: 1px solid var(--Lime-Green);
     height: var(--gridHeight);
     width : var(--gridWidth);
     display: flex;
@@ -54,6 +71,39 @@ h1 {
     align-items: center;
     position: relative;
     cursor: pointer;
+  }
+
+
+.playButton {
+    background-color: var(--Lime-Green);
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: white;
+    cursor: pointer;
+    flex-shrink: 0;
+    font-family: "Inter UI","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    height: 4rem;
+    padding: 0 1.6rem;
+    text-align: center;
+    text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+    transition: all .5s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .playButton {
+    box-shadow: var(--Red-Orange) 0 1px 30px;
+    transition-duration: .1s;
+  }
+  
+  @media (min-width: 768px) {
+    .playButton {
+      padding: 0 2.6rem;
+    }
   }
 
 /*Chop off ends or borders and generate X and O via CSS */ 
@@ -79,63 +129,62 @@ h1 {
 }
 
 .grid.EX,
-.grid.OH {
+.grid.O {
     cursor: not-allowed;
 }
 
 .grid.EX::before,
 .grid.EX::after,
-.grid.OH::before,
-.grid.OH::after {
+.grid.O::before,
+.grid.O::after {
     background-color: var(--Lime-Green);
 }
 
-.EX .grid:not(.EX):not(.OH):hover::before,
-.mainDiv.EX .grid:not(.EX):not(.OH):hover::after,
-.mainDiv.OH .grid:not(.EX):not(.OH):hover::before{
+.EX .grid:not(.EX):not(.O):hover::before,
+.mainDiv.EX .grid:not(.EX):not(.O):hover::after,
+.mainDiv.O .grid:not(.EX):not(.O):hover::before{
     background-color: var(--Lime-Green);
 }
 
 
 .grid.EX::before,
 .grid.EX::after,
-.mainDiv.EX .grid:not(.EX):not(.OH):hover::before,
-.mainDiv.EX .grid:not(.EX):not(.OH):hover::after {
+.mainDiv.EX .grid:not(.EX):not(.O):hover::before,
+.mainDiv.EX .grid:not(.EX):not(.O):hover::after {
     content: '';
     position: absolute;
-    width: calc(var(--ExOhSize) * .15);
-    height: var(--ExOhSize);   
+    width: calc(var(--ExOSize) * .15);
+    height: var(--ExOSize);   
 }
 
 .grid.EX::before,
-.mainDiv.EX .grid:not(.EX):not(.OH):hover::before{
+.mainDiv.EX .grid:not(.EX):not(.O):hover::before{
     transform: rotate(45deg);
 }
 
 .grid.EX::after,
-.mainDiv.EX .grid:not(.EX):not(.OH):hover::after{
+.mainDiv.EX .grid:not(.EX):not(.O):hover::after{
     transform: rotate(-45deg);
 }
 
-.grid.OH::before,
-.grid.OH::after,
-.mainDiv.OH .grid:not(.EX):not(.OH):hover::before,
-.mainDiv.OH .grid:not(.EX):not(.OH):hover::after {
+.grid.O::before,
+.grid.O::after,
+.mainDiv.O .grid:not(.EX):not(.O):hover::before,
+.mainDiv.O .grid:not(.EX):not(.O):hover::after {
     content: '';
     position: absolute;
     border-radius: 50%;
 }
 
-.grid.OH::before,
-.mainDiv.OH .grid:not(.EX):not(.OH):hover::before {
-    width: var(--ExOhSize);
-    height: var(--ExOhSize);
-   
+.grid.O::before,
+.mainDiv.O .grid:not(.EX):not(.O):hover::before {
+    width: var(--ExOSize);
+    height: var(--ExOSize); 
 }
 
-.grid.OH::after,
-.mainDiv.OH .grid:not(.EX):not(.OH):hover::after {
-    width: calc(var(--ExOhSize) * .7);
-    height: calc(var(--ExOhSize) * .7);
+.grid.O::after,
+.mainDiv.O .grid:not(.EX):not(.O):hover::after {
+    width: calc(var(--ExOSize) * .7);
+    height: calc(var(--ExOSize) * .7);
     background-color:  var(--Chartreuse);
 }
