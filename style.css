@@ -23,12 +23,11 @@ body{
 h1 {
     font-family: "Lucida Console", "Courier New", monospace;
     text-align: center;
-    color: var(--Lime-Green); 
+    color: var(--Chartreuse); 
     margin-bottom: 0px;
 }
 
 #messageAlert{
-    visibility: hidden;
     margin-bottom: 25px;
 }
 
@@ -50,8 +49,8 @@ h1 {
     grid-template-columns: repeat(3, 1fr);
     border-collapse: collapse;
     display: grid;
-    width: 602px;
-    height: 602px;
+    width: 605px;
+    height: 607px;
     justify-content: center; 
     align-content: center;
     justify-items: center;
@@ -81,7 +80,7 @@ h1 {
   }
 
 .playButton {
-    background-color: var(--Lime-Green);
+    background-color: var(--Chartreuse);
     border-radius: 8px;
     border-style: none;
     box-sizing: border-box;
