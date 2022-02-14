@@ -50,8 +50,8 @@ h1 {
     grid-template-columns: repeat(3, 1fr);
     border-collapse: collapse;
     display: grid;
-    width: 600px;
-    height: 600px;
+    width: 602px;
+    height: 602px;
     justify-content: center; 
     align-content: center;
     justify-items: center;
@@ -63,7 +63,7 @@ h1 {
 }
 
 .grid {
-    border: 1px solid var(--Lime-Green);
+    border: 2px solid var(--Lime-Green);
     height: var(--gridHeight);
     width : var(--gridWidth);
     display: flex;
