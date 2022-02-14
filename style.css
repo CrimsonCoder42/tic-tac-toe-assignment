@@ -128,29 +128,22 @@ h1 {
     border-bottom: none;
 }
 
+/* turn cursor off  */
+
 .grid.EX,
 .grid.O {
     cursor: not-allowed;
 }
 
 .grid.EX::before,
-.grid.EX::after,
-.grid.O::before,
-.grid.O::after {
+.grid.EX::after{
     background-color: var(--Lime-Green);
 }
-
-.EX .grid:not(.EX):not(.O):hover::before,
-.mainDiv.EX .grid:not(.EX):not(.O):hover::after,
-.mainDiv.O .grid:not(.EX):not(.O):hover::before{
-    background-color: var(--Lime-Green);
-}
-
 
 .grid.EX::before,
 .grid.EX::after,
-.mainDiv.EX .grid:not(.EX):not(.O):hover::before,
-.mainDiv.EX .grid:not(.EX):not(.O):hover::after {
+.mainDiv.EX .grid:not(.EX)::before,
+.mainDiv.EX .grid:not(.EX)::after {
     content: '';
     position: absolute;
     width: calc(var(--ExOSize) * .15);
@@ -158,33 +151,18 @@ h1 {
 }
 
 .grid.EX::before,
-.mainDiv.EX .grid:not(.EX):not(.O):hover::before{
+.mainDiv.EX .grid:not(.EX):before{
     transform: rotate(45deg);
 }
 
 .grid.EX::after,
-.mainDiv.EX .grid:not(.EX):not(.O):hover::after{
+.mainDiv.EX .grid:not(.EX):after{
     transform: rotate(-45deg);
 }
 
-.grid.O::before,
-.grid.O::after,
-.mainDiv.O .grid:not(.EX):not(.O):hover::before,
-.mainDiv.O .grid:not(.EX):not(.O):hover::after {
-    content: '';
-    position: absolute;
-    border-radius: 50%;
-}
 
 .grid.O::before,
-.mainDiv.O .grid:not(.EX):not(.O):hover::before {
+.mainDiv.O .grid:not(.EX)::before {
     width: var(--ExOSize);
     height: var(--ExOSize); 
-}
-
-.grid.O::after,
-.mainDiv.O .grid:not(.EX):not(.O):hover::after {
-    width: calc(var(--ExOSize) * .7);
-    height: calc(var(--ExOSize) * .7);
-    background-color:  var(--Chartreuse);
 }
