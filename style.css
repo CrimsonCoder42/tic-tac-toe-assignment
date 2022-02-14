@@ -73,6 +73,12 @@ h1 {
     cursor: pointer;
   }
 
+  .grid.O {
+    color: var(--Lime-Green);
+    font-size: calc(var(--gridHeight) * .9);
+    font-weight: bold;
+    font-family: "Lucida Console", "Courier New", monospace;
+  }
 
 .playButton {
     background-color: var(--Lime-Green);
@@ -160,6 +166,14 @@ h1 {
     transform: rotate(-45deg);
 }
 
+/*.grid.O::before,
+.grid.O::after,
+.mainDiv.O .grid:not(.EX)::before,
+.mainDiv.O .grid:not(.EX)::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+}
 
 .grid.O::before,
 .mainDiv.O .grid:not(.EX)::before {

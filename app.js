@@ -24,6 +24,7 @@ const grids = document.querySelectorAll('.grid')
 const playButton = document.getElementById('play');
 playButton.addEventListener('click', playGame);
 
+
 // Create grid generate gird ID numbers 
 function createGrid() {
     for (i = 0; i < 9; i++){
@@ -34,9 +35,9 @@ function createGrid() {
     }
 }
 
+// adds event listeners, starts game, resets all grids 
 playGame()
-grids.forEach(grid => {
-})
+
 
 function playGame() {
     whoTurn = false;
