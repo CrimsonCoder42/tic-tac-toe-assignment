@@ -108,4 +108,3 @@ function tie() {
     playButton.style.visibility = "visible"
    }   
 }
-
