@@ -100,8 +100,9 @@ function filterWin() {
 
 // Checks if there is a tie 
 function tie() {
+    console.log(playerXArray.length)
     let allArray = playerXArray.length + playerOArray.length 
-   if (allArray === 9 && alertMessage.innerText != 'X wins!!!' ||alertMessage.innerText != 'O wins!!!' ) {
+   if (allArray === 9 && alertMessage.innerText != 'X wins!!!' ||allArray === 9 && alertMessage.innerText != 'O wins!!!' ) {
     alertMessage.innerText = "We have a TIE!!!"
     alertMessage.style.visibility = "visible"
     playButton.style.visibility = "visible"
